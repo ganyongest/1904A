@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <link rel="stylesheet" href="/js/bootstrap/css/bootstrap.min.css">
+    <link rel="icon" href="/js/shop/assets/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/js/shop/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="/js/shop/css/pages-JD-index.css" />
+    <link rel="stylesheet" type="text/css" href="/js/shop/css/widget-jquery.autocomplete.css" />
+    <link rel="stylesheet" type="text/css" href="/js/shop/css/widget-cartPanelView.css" />
+    <title>商城首页</title>
+</head>
+<body>
+
+<div id="nav-bottom">
+    <!--顶部-->
+    <div class="nav-top">
+        <!--头部-->
+        <div class="header">
+            <div class="py-container">
+                <div class="yui3-g NavList">
+                    <div class="yui3-u Left all-sort">
+                        <h4>全部商品分类</h4>
+                    </div>
+                    <div class="yui3-u Center navArea">
+                        <ul class="nav">
+                            <li class="f-item">服装城</li>
+                            <li class="f-item">美妆馆</li>
+                            <li class="f-item">品优超市</li>
+                            <li class="f-item">全球购</li>
+                            <li class="f-item">闪购</li>
+                            <li class="f-item">团购</li>
+                            <li class="f-item">有趣</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--列表-->
+<div class="sort">
+    <div class="py-container">
+        <div class="yui3-g SortList ">
+            <div class="yui3-u Left all-sort-list">
+                <div class="all-sort-list2" id="categoryDiv">
+                    <!-- <div class="item">
+                         <h3><a href="">图书、音像、数字商品</a></h3>
+                         <div class="item-list clearfix">
+                             <div class="subitem">
+                                 <dl class="fore1">
+                                     <dt><a href="">电子书</a></dt>
+                                     <dd><a href="">免费</a><a href="">小说</a></em><a href="">励志与成功</a><em><a href="">婚恋/两性</a></em><em><a href="">文学</a></em><em><a href="">经管</a></em><em><a href="">畅读VIP</a></em></dd>
+                                 </dl>
+                                 <dl class="fore2">
+                                     <dt><a href="">数字音乐</a></dt>
+                                     <dd><em><a href="">通俗流行</a></em><em><a href="">古典音乐</a></em><em><a href="">摇滚说唱</a></em><em><a href="">爵士蓝调</a></em><em><a href="">乡村民谣</a></em><em><a href="">有声读物</a></em></dd>
+                                 </dl>
+                                 <dl class="fore3">
+                                     <dt><a href="">音像</a></dt>
+                                     <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a href="">教育音像</a></em><em><a href="">游戏</a></em></dd>
+                                 </dl>
+                                 <dl class="fore4">
+                                     <dt>文艺</dt>
+                                     <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a href="">青春文学</a></em><em><a href="">传记</a></em><em><a href="">艺术</a></em></dd>
+                                 </dl>
+                                 <dl class="fore5">
+                                     <dt>人文社科</dt>
+                                     <dd><em><a href="">历史</a></em><em><a href="">心理学</a></em><em><a href="">政治/军事</a></em><em><a href="">国学/古籍</a></em><em><a href="">哲学/宗教</a></em><em><a href="">社会科学</a></em></dd>
+                                 </dl>
+                                 <dl class="fore6">
+                                     <dt>经管励志</dt>
+                                     <dd><em><a href="">经济</a></em><em><a href="">金融与投资</a></em><em><a href="">管理</a></em><em><a href="">励志与成功</a></em></dd>
+                                 </dl>
+                                 <dl class="fore7">
+                                     <dt>生活</dt>
+                                     <dd><em><a href="">家庭与育儿</a></em><em><a href="">旅游/地图</a></em><em><a href="">烹饪/美食</a></em><em><a href="">时尚/美妆</a></em><em><a href="">家居</a></em><em><a href="">婚恋与两性</a></em><em><a href="">娱乐/休闲</a></em><em><a href="">健身与保健</a></em><em><a href="">动漫/幽默</a></em><em><a href="">体育/运动</a></em></dd>
+                                 </dl>
+                             </div>
+                         </div>
+                    </div>-->
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/jquery-3.3.1.js"></script>
+<script src="/js/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/shop/js/pages/index.js"></script>
+
+
+<script>
+
+    $(function () {
+        initCategory();
+    })
+
+    function initCss() {
+        $('.all-sort-list2 > .item').hover(function() {
+            //父类分类列表容器的高度
+            $(this).addClass('hover');
+            $(this).children('.item-list').css('display', 'block');
+        }, function() {
+            $(this).removeClass('hover');
+            $(this).children('.item-list').css('display', 'none');
+        });
+
+        $('.item > .item-list > .close').click(function() {
+            $(this).parent().parent().removeClass('hover');
+            $(this).parent().hide();
+        });
+    }
+    var v_categoryList;
+    function initCategory(){
+        $.ajax({
+            type:"post",
+            dataType: "jsonp",
+            url:"http://localhost:8083/category/queryList",
+            success:function (result) {
+                //if (result.status == 200) {
+                v_categoryList = result;
+                buildMenu(0);
+                initCss();
+                // }
+            }
+        })
+    }
+    var v_html="";
+    function buildMenu(pid){
+
+        for (var i = 0; i < v_categoryList.length; i++) {
+           if(pid==v_categoryList[i].pid){
+               v_html +=' <div class="item">';
+               v_html +='<h3><a href="">'+v_categoryList[i].categoryName+'</a></h3>';
+               buildChild(v_categoryList[i].id);
+               v_html +='</div>';
+           }
+        }
+        console.log(v_html);
+        $("#categoryDiv").html(v_html);
+    }
+
+    function buildChild(pid){
+        v_html +='<div class="item-list clearfix">';
+        v_html +='<div class="subitem">' ;
+        for (var i = 0; i < v_categoryList.length; i++) {
+            if(pid==v_categoryList[i].pid){
+                v_html += '<dl class="fore1">';
+                v_html +='<dt><a href="">'+v_categoryList[i].categoryName+'</a></dt>';
+                buildChildChild(v_categoryList[i].id)
+                v_html += '</dl>';
+
+            }
+        }
+        v_html += '</div></div>';
+
+    }
+
+    function buildChildChild(pid){
+
+        v_html +='<dd>' ;
+        for (var i = 0; i < v_categoryList.length; i++) {
+            if(pid==v_categoryList[i].pid){
+                v_html +='<em><a href="">'+v_categoryList[i].categoryName+'</a></em>';
+            }
+        }
+        v_html += '</dd>';
+
+    }
+    
+</script>
+</body>
+</html>
